@@ -6,6 +6,8 @@
 
 class Bootstrap {
 
+    private $_router;
+
     /**
      * Constructor
      */
@@ -46,8 +48,8 @@ class Bootstrap {
     public function route() {
         global $url;
 
-        $router = new Router( $url );
-        $router->route();
+        $this->_router = new Router( $url );
+        $this->_router->route();
     }
 
     /**

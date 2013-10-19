@@ -2,6 +2,12 @@
 
 class ItemsController extends Controller {
 
+    public function __construct($model, $controller, $action) {
+        $this->_getModel($model);
+
+        parent::__construct($model, $controller, $action);
+    }
+
 	function view($id = null,$name = null) {
 	
 		$this->set('title',$name.' - My Todo List App');
