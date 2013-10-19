@@ -13,9 +13,10 @@ class TodolistController extends Controller {
     }
 
     public function view( $id ) {
-        $items = new Item();
+        $this->set('list', $this->Todolist->load( $id ) );
 
-        var_dump($items);
+        $item = new Item();
+        $this->set( 'items', $item->fetchAllByListId( $id ) );
     }
 
 }

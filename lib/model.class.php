@@ -27,4 +27,14 @@ abstract class Model {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    /**
+     * Load single row
+     */
+    public function load( $id ) {
+        if( $id <= 0 ) return false;
+
+        $db = DB::getInstance();
+        $stmt = $db->query(sprintf("SELECT * FROM %s WHERE id = %d", $this->_table, $id));
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
 }
