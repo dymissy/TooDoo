@@ -1,7 +1,6 @@
 <?php
 
 class ItemsController extends Controller {
-
     public function __construct($model, $controller, $action) {
         $this->_getModel($model);
 
@@ -18,7 +17,7 @@ class ItemsController extends Controller {
 	function viewall() {
 
 		$this->set('title','All Items - My Todo List App');
-		$this->set('todo',$this->Item->selectAll());
+		$this->set('todo',$this->Item->fetchAll());
 	}
 	
 	function add() {
