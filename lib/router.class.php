@@ -20,15 +20,16 @@ class Router {
      *
      */
     public function __construct( $url ) {
-        $this->_url = $url;
+        $this->_url      = $url;
         $this->_urlParts = explode( "/", $this->_url );
 
-        $this->_controller = $this->_getController();
-        $this->_model = $this->_getModel();
-        $this->_action = $this->_getAction();
+        $this->_controller  = $this->_getController();
+        $this->_model       = $this->_getModel();
+        $this->_action      = $this->_getAction();
         $this->_queryString = $this->_urlParts;
 
-        var_dump($this);
+        //print the route
+        //var_dump($this);
     }
 
 
@@ -38,7 +39,7 @@ class Router {
     private function _getController() {
         $controller = array_shift( $this->_urlParts );
 
-        if( empty( $controller ) ) {
+        if ( empty( $controller ) ) {
             $controller = 'index';
         }
 
@@ -52,7 +53,7 @@ class Router {
     private function _getAction() {
         $action = array_shift( $this->_urlParts );
 
-        if( empty( $action ) ) {
+        if ( empty( $action ) ) {
             $action = 'index';
         }
 
@@ -73,8 +74,8 @@ class Router {
      */
     public function route() {
 
-        $controller = ucwords($this->_controller) . 'Controller';
-        $dispatch = new $controller( $this->_model, $this->_controller, $this->_action );
+        $controller = ucwords( $this->_controller ) . 'Controller';
+        $dispatch   = new $controller( $this->_model, $this->_controller, $this->_action );
 
         if ( method_exists( $controller, $this->_action ) ) {
             call_user_func_array( array( $dispatch, $this->_action ), $this->_queryString );

@@ -2,6 +2,8 @@
 
 class IndexController extends Controller {
 
-    function view() {}
+    function index() {
+        $this->_redirect( 'todolist' );
+    }
 
 }
