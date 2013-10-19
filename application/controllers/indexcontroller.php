@@ -2,7 +2,6 @@
 
 class IndexController extends Controller {
 
-    function view() {
-    }
+    function view() {}
 
 }

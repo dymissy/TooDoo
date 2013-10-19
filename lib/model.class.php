@@ -18,10 +18,13 @@ abstract class Model {
 		$this->_table = strtolower($this->_model)."s";
 	}
 
+    /**
+     * Fetch all rows
+     */
     public function fetchAll() {
         $db = DB::getInstance();
         $stmt = $db->query(sprintf("SELECT * FROM %s", $this->_table));
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
 }
