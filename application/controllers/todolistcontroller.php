@@ -36,4 +36,33 @@ class TodolistController extends Controller {
         }
     }
 
+    public function add() {
+        if( isset($_POST['addlist']) ) {
+            $values = $_POST;
+            $name = $_POST['name'];
+            $desc = $_POST['description'];
+            $error = array();
+
+            if( empty($name) ) {
+                $error['name'] = true;
+            }
+
+            if( empty($desc) ) {
+                $error['description'] = true;
+            }
+
+            if( !empty($error) ) {
+                $this->set('error', $error);
+                $this->set('values', $values);
+            } else {
+                $this->Todolist->insert( array(
+                    'name' => $name,
+                    'description' => $desc,
+                    'created_at' => $this->_now()
+                ) );
+                $this->_redirect('todolist');
+            }
+        }
+    }
+
 }

@@ -73,5 +73,29 @@ abstract class Model {
         $count = $db->exec( $query );
         return $count > 0;
     }
+
+    /**
+     * Insert a new row
+     */
+    public function insert( $data ) {
+        if( empty($data) ) {
+            return false;
+        }
+
+        $fields = $values = '';
+
+
+        foreach( $data as $field => $value ) {
+            $fields .= " {$field}, ";
+            $values .= " \"{$value}\", ";
+        }
+        $fields = substr($fields,0,strlen($fields)-2);
+        $values = substr($values,0,strlen($values)-2);
+        $query = sprintf( "INSERT INTO %s ( %s ) VALUES ( %s );", $this->_table, $fields, $values );
+
+        $db   = DB::getInstance();
+        $count = $db->exec( $query );
+        return $count > 0;
+    }
 }
 
