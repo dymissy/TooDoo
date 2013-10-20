@@ -24,4 +24,16 @@ class TodolistController extends Controller {
         $this->_redirect( 'todolist' );
     }
 
+    public function update() {
+        $this->_render = false;
+
+        $id = $_POST['item'] * 1;
+        $fields[ $_POST['field'] ] = $_POST['value'];
+        if( $this->Todolist->update( $id, $fields ) ) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
+    }
+
 }

@@ -14,10 +14,10 @@
             </tr>
         </thead>
         <?php foreach ( $lists as $list ): ?>
-            <tr>
+            <tr data-item="<?php echo $list->id ?>">
                 <td><a href="<?php echo HOME_URL . 'todolist/delete/' . $list->id ?>" class="close" >&times;</a></td>
-                <td><?php echo $list->name ?></td>
-                <td><?php echo $list->description ?></td>
+                <td data-field="name" contenteditable><?php echo $list->name ?></td>
+                <td data-field="description" contenteditable><?php echo $list->description ?></td>
                 <td><?php echo $list->created_at ?></td>
                 <td><a href="<?php echo HOME_URL . 'todolist/view/' . $list->id ?>">View</a></td>
             </tr>
