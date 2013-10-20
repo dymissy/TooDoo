@@ -13,4 +13,9 @@ class ItemController extends Controller {
         $this->_redirect( 'todolist/view/' . $list_id );
     }
 
+    public function update() {
+        $this->_render = false;
+        var_dump($_POST);
+    }
+
 }

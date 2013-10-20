@@ -10,6 +10,7 @@ abstract class Controller {
     protected $_controller;
     protected $_action;
     protected $_template;
+    protected $_render = true;
 
     /**
      * Constructor
@@ -65,7 +66,9 @@ abstract class Controller {
      *
      */
     public function __destruct() {
-        $this->_template->render();
+        if( $this->_render ) {
+            $this->_template->render();
+        }
     }
 
 }

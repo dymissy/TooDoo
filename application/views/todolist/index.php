@@ -24,8 +24,8 @@
         <?php endforeach ?>
     </table>
 
-    <a href="<?php echo HOME_URL ?>todolist/add/" type="button" class="btn btn-primary btn-sm">Add new list</a>
-
 <?php else: ?>
     <p>No Lists found.</p>
 <?php endif; ?>
+
+<a href="<?php echo HOME_URL ?>todolist/add/" type="button" class="btn btn-primary btn-sm">Add new list</a>

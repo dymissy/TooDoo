@@ -17,6 +17,8 @@
     <script src="<?php echo HOME_URL ?>js/html5shiv.js"></script>
     <script src="<?php echo HOME_URL ?>js/respond.min.js"></script>
     <![endif]-->
+
+    <script>var home_url = "<?php echo HOME_URL ?>";</script>
 </head>
 
 <body>
