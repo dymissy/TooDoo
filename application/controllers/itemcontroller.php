@@ -15,7 +15,8 @@ class ItemController extends Controller {
 
     public function update() {
         $this->_render = false;
-        var_dump($_POST);
+        echo 'true';
+        //var_dump($_POST);
     }
 
 }
