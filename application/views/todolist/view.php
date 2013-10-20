@@ -17,7 +17,7 @@
         </thead>
         <?php foreach ( $items as $item ): ?>
             <tr>
-                <td><a href="<?php echo HOME_URL . 'item/delete/' . $item->id ?>" class="close" >&times;</a></td>
+                <td><a href="<?php echo HOME_URL . 'item/delete/' . $item->id . '/' . $list->id ?>" class="close" >&times;</a></td>
                 <td><?php echo $item->text ?></td>
                 <td><?php echo $item->description ?></td>
                 <td><?php echo $item->created_at ?></td>

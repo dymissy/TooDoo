@@ -19,4 +19,9 @@ class TodolistController extends Controller {
         $this->set( 'items', $item->fetchAllByListId( $id ) );
     }
 
+    public function delete( $id ) {
+        $this->Todolist->delete($id);
+        $this->_redirect( 'todolist' );
+    }
+
 }

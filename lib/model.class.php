@@ -39,4 +39,17 @@ abstract class Model {
         $stmt = $db->query( sprintf( "SELECT * FROM %s WHERE id = %d", $this->_table, $id ) );
         return $stmt->fetch( PDO::FETCH_OBJ );
     }
+
+    /**
+     * Delete single row
+     */
+    public function delete( $id ) {
+        if ( $id <= 0 ) {
+            return false;
+        }
+
+        $db   = DB::getInstance();
+        $count = $db->exec( sprintf( "DELETE FROM %s WHERE id = %d", $this->_table, $id ) );
+        return $count > 0;
+    }
 }
