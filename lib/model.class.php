@@ -52,4 +52,26 @@ abstract class Model {
         $count = $db->exec( sprintf( "DELETE FROM %s WHERE id = %d", $this->_table, $id ) );
         return $count > 0;
     }
+
+    /**
+     * Update a single row
+     *
+     * UPDATE  `toodoo`.`items` SET  `description` =  'desc', `updated_at` = NOW( ) WHERE  `items`.`id` =5;
+     */
+    public function update( $id, $fields ) {
+        if ( $id <= 0 ) {
+            return false;
+        }
+
+        $query = sprintf( "UPDATE %s SET ", $this->_table );
+        foreach( $fields as $field => $value ) {
+            $query .= " {$field} = '{$value}' ";
+        }
+        $query .= " WHERE id = " . $id;
+
+        $db   = DB::getInstance();
+        $count = $db->exec( $query );
+        return $count > 0;
+    }
 }
+
