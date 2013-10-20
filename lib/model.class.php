@@ -56,7 +56,6 @@ abstract class Model {
     /**
      * Update a single row
      *
-     * UPDATE  `toodoo`.`items` SET  `description` =  'desc', `updated_at` = NOW( ) WHERE  `items`.`id` =5;
      */
     public function update( $id, $fields ) {
         if ( $id <= 0 ) {
@@ -65,8 +64,9 @@ abstract class Model {
 
         $query = sprintf( "UPDATE %s SET ", $this->_table );
         foreach( $fields as $field => $value ) {
-            $query .= " {$field} = '{$value}' ";
+            $query .= " {$field} = '{$value}', ";
         }
+        $query = substr($query,0,strlen($query)-2);
         $query .= " WHERE id = " . $id;
 
         $db   = DB::getInstance();

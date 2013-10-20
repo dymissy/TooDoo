@@ -14,7 +14,7 @@ jQuery(function($){
 
             $.post( url, data, function( data ) {
                 //restore the value if something is wrong
-                if( data == 'false' ) {
+                if( data != 'true' ) {
                     t.text( t.data('value') );
                 }
             });

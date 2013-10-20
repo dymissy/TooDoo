@@ -71,4 +71,12 @@ abstract class Controller {
         }
     }
 
+
+    /**
+     * Simulate MySQL NOW() function
+     */
+    protected function _now() {
+        return date("Y-m-d H:i:s");
+    }
+
 }

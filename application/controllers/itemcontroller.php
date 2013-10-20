@@ -15,8 +15,16 @@ class ItemController extends Controller {
 
     public function update() {
         $this->_render = false;
-        echo 'true';
-        //var_dump($_POST);
+
+        $id = $_POST['item'] * 1;
+        $fields[ $_POST['field'] ] = $_POST['value'];
+        $fields[ 'updated_at' ] = $this->_now();
+
+        if( $this->Item->update( $id, $fields ) ) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
 }
