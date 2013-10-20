@@ -1,15 +1,21 @@
-<h1>My ToDo Lists</h1>
+<div class="page-header">
+    <h1>My To-Do Lists</h1>
+</div>
 
 <?php if ( ! empty( $lists ) ): ?>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Creation Date</th>
-            <th></th>
-        </tr>
+    <table class="todolist table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Creation Date</th>
+                <th></th>
+            </tr>
+        </thead>
         <?php foreach ( $lists as $list ): ?>
             <tr>
+                <td><a href="<?php echo HOME_URL . 'todolist/delete/' . $list->id ?>" class="close" >&times;</a></td>
                 <td><?php echo $list->name ?></td>
                 <td><?php echo $list->description ?></td>
                 <td><?php echo $list->created_at ?></td>
@@ -17,6 +23,8 @@
             </tr>
         <?php endforeach ?>
     </table>
+
+    <a href="<?php echo HOME_URL ?>todolist/add/" type="button" class="btn btn-primary btn-sm">Add new list</a>
 
 <?php else: ?>
     <p>No Lists found.</p>

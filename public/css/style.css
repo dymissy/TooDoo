@@ -1,0 +1,10 @@
+.page-header {
+    margin-top: 72px;
+}
+
+.todolist tr td:first-child {
+    text-align: center;
+}
+.todolist tr td .close {
+    float: none;
+}
