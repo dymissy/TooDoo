@@ -30,4 +30,5 @@
     <p>No Items found.</p>
 <?php endif; ?>
 
-<a href="<?php echo HOME_URL ?>item/add/" type="button" class="btn btn-primary btn-sm">Add new item</a>
+<a href="<?php echo HOME_URL ?>item/add/<?php echo $list->id ?>" type="button" class="btn btn-primary btn-sm">Add new item</a>
+<a href="<?php echo HOME_URL ?>todolist" class="btn btn-default btn-sm">Back</a>
