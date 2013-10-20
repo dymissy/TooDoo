@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `todolists` (
   `description` varchar(500) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 ALTER TABLE `items`
   ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`list_id`) REFERENCES `todolists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
