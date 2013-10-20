@@ -2,8 +2,6 @@
 -- Database: `toodoo`
 --
 
--- --------------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `list_id` int(10) unsigned NOT NULL,
